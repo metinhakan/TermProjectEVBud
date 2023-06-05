@@ -3,12 +3,18 @@ using Microsoft.EntityFrameworkCore;
 using TermProjectEVBud.Data;
 using TermProjectEVBud.Data;
 using TermProjectEVBud.Data.Migrations;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 
 namespace TermProjectEVBud.Data;
 
 public class ApplicationDbContext : DbContext
 {
+    public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
+        : base(options)
+    {
+    }
+    
     
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
@@ -54,7 +60,10 @@ public class ApplicationDbContext : DbContext
         modelBuilder.Entity<Reserve>().HasOne(m => m.Member).WithMany(n => n.Reserves).HasForeignKey(m => m.MemberId);
         modelBuilder.Entity<Reserve>().HasOne(m => m.Charger).WithMany(n => n.Reserves).HasForeignKey(m => m.ChargerId);
         
+      
+        
 
+        
 
     }
 }

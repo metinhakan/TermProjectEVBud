@@ -181,6 +181,14 @@ namespace TermProjectEVBud.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MemberId"));
 
+                    b.Property<string>("MemberLocation")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MemberMail")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("MemberName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");

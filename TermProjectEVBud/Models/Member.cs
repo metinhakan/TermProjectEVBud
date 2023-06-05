@@ -7,6 +7,8 @@ public class Member
         public int MemberId { get; set; }
         public string Password { get; set; } 
         public string MemberName { get; set; }
+        public string MemberMail { get; set; }
+        public string MemberLocation { get; set; }
         
         public ICollection<Car> Cars { get; set; }
         public ICollection<Charging> Chargings { get; set; }
